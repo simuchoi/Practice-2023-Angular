@@ -1,0 +1,155 @@
+<div class="background">
+  <div class="top-navbar">
+    <div class="top-navbar-section">
+      <div class="top-navbar-left-section">
+        <div class="logo-icon">
+          <img src="/assets/pics/logo.png" alt="LOGO">
+        </div>
+      </div>
+    </div>
+    <div class="top-navbar-section">
+      <div class="top-navbar-button">
+        <ul class="nav-ul">
+            <li><a class="nav-a" href="./index.html">Home</a></li>
+            <li><a class="nav-a" href="./index.html">About us</a></li>
+            <li><a class="nav-a" href="./index.html">Our Lands</a></li>
+            <li><a class="nav-a" href="./index.html">Our Suppliers</a></li>
+            <li><a class="nav-a" href="./index.html">Products</a></li>
+            <li><a class="nav-a" href="./index.html">Contact Us</a></li>    
+        </ul>
+      </div>
+    </div>
+    <div class="top-navbar-section">
+      <div class="top-navbar-right-section">
+        <div class="cart-icon">
+          <a href="./index.html">
+            <img src="/assets/pics/cart.svg" alt="shopping cart">
+          </a>
+        </div>
+        <div class="profile-icon">
+          <img src="/assets/pics/profile.png" alt="profile avatar">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-section">
+    <div class="switch-button-left">
+      <a class="prev" #prev (click)="onPrev()">
+        <ul class="nav-ul" id="bottleToLeft">
+          <li>
+              <img class="left-arrow" src="/assets/pics/arrow.svg" alt="LEFT">
+          </li>
+        </ul>
+      </a>
+    </div>
+    <div class="main-page">
+      <div class="right-section">
+        <div class="search-section">
+          <h1>Search for something</h1>
+          <div class="input-section">
+            <div class="glass">   
+              <img src="/assets/pics/glass.svg" alt="glass">
+            </div>
+              <input type="text" value="Barnsley Brew Coffee"> 
+          </div>
+          <span class="search-section-span">Just type something in input above to start searching. Search presented by public API, and all content are fake (or maybe not)</span>
+          <div class="description">
+            <p class="res-p">Results:</p>
+          </div>
+        </div>
+
+        <div class="all-bottles-section">
+          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 0">
+            <div class="bottle-card" [class.bottle-card_active] = "counter === 0">
+              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 0">
+                <img class="bottle-img" src="/assets/pics/bottle5.png" alt="AB:05" [class.bottle-img_active] = "counter === 0">
+              </div>
+              <div class="bottle-info" [class.bottle-info_active] = "counter === 0">
+                <p class="bottle-p" [class.bottle-p_active] = "counter === 0">AB:05</p>
+                <span class="bottle-span" [class.bottle-span_active] = "counter === 0">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces</span>
+              </div>
+              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 0">
+                <p class="id-price-p">abv: 12.5</p>
+                <p class="id-price-p">$69.99</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 1">
+            <div class="bottle-card" [class.bottle-card_active] = "counter === 1">
+              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 1">
+                <img class="bottle-img" src="/assets/pics/bottle1.png" alt="AB:05" [class.bottle-img_active] = "counter === 1">
+              </div>
+              <div class="bottle-info" [class.bottle-info_active] = "counter === 1">
+                <p class="bottle-p" [class.bottle-p_active] = "counter === 1">AB:05</p>
+                <span class="bottle-span" [class.bottle-span_active] = "counter === 1">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
+              </div>
+              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 1">
+                <p class="id-price-p">abv: 12.5</p>
+                <p class="id-price-p">$69.99</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 2">
+            <div class="bottle-card" [class.bottle-card_active] = "counter === 2">
+              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 2">
+                <img class="bottle-img" src="/assets/pics/bottle2.png" alt="AB:05" [class.bottle-img_active] = "counter === 2">
+              </div>
+              <div class="bottle-info" [class.bottle-info_active] = "counter === 2">
+                <p class="bottle-p" [class.bottle-p_active] = "counter === 2">AB:05</p>
+                <span class="bottle-span" [class.bottle-span_active] = "counter === 2">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
+              </div>
+              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 2">
+                <p class="id-price-p">abv: 12.5</p>
+                <p class="id-price-p">$69.99</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 3">
+            <div class="bottle-card" [class.bottle-card_active] = "counter === 3">
+              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 3">
+                <img class="bottle-img" src="/assets/pics/bottle3.png" alt="AB:05" [class.bottle-img_active] = "counter === 3">
+              </div>
+              <div class="bottle-info" [class.bottle-info_active] = "counter === 3">
+                <p class="bottle-p" [class.bottle-p_active] = "counter === 3">AB:05</p>
+                <span class="bottle-span" [class.bottle-span_active] = "counter === 3">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
+              </div>
+              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 3">
+                <p class="id-price-p">abv: 12.5</p>
+                <p class="id-price-p">$69.99</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 4">
+            <div class="bottle-card" [class.bottle-card_active] = "counter === 4">
+              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 4">
+                <img class="bottle-img" src="/assets/pics/bottle4.png" alt="AB:05" [class.bottle-img_active] = "counter === 4">
+              </div>
+              <div class="bottle-info" [class.bottle-info_active] = "counter === 4">
+                <p class="bottle-p" [class.bottle-p_active] = "counter === 4">AB:05</p>
+                <span class="bottle-span" [class.bottle-span_active] = "counter === 4">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
+              </div>
+              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 4">
+                <p class="id-price-p">abv: 12.5</p>
+                <p class="id-price-p">$69.99</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>   
+    </div>
+    <div class="switch-button-right">
+      <a class="next" #next (click)="onNext()">
+        <ul class="nav-ul" id="bottleToRight">
+          <li>
+              <img class="right-arrow" src="/assets/pics/arrow.svg" alt="RIGHT">
+          </li>
+        </ul>
+      </a>
+  </div>
+</div>
