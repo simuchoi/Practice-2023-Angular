@@ -1,5 +1,3 @@
-/* //////////////// MINIMAL RESET \\\\\\\\\\\\\\\\ */
-
   .wrapper {
     display: flex;
     min-height: 100%;
@@ -27,59 +25,6 @@
     width: 100%;
   }
   
-  .switch-button-left {
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px 1px rgba(45, 65, 102, 0.3);
-    margin-bottom: 133px;
-    margin-left: 50px;
-    margin-right: 30px;
-  }
-  
-  .switch-button-right {
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px 1px rgba(45, 65, 102, 0.3);
-    margin-bottom: 133px;
-    margin-left: 30px;
-    transform: scale(-1);
-  }
-  
-  .prev .nav-ul, .next .nav-ul {
-    display: flex;
-    border-radius: 50px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .prev .nav-ul:hover, .next .nav-ul:hover{
-    display: flex;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  .prev .nav-ul:active, .next .nav-ul:active{
-    display: flex;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.0);
-  }
-  
-  .nav-ul .right-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    padding-right: 5px;
-  }
-  
-  .nav-ul .left-arrow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    padding-right: 5px;
-  }
-  
   .background {
     display: flex;
     align-items: center;
@@ -94,13 +39,7 @@
     radial-gradient(at 42.5% 70%, rgba(255, 0, 255, 0.1), rgba(255, 200, 0, 0.05 ), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url("/assets/pics/noise.png") center/cover;
   }
-  
-  .main-section {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-  }
-  
+    
   .top-navbar-button {
     display: flex;
     justify-content: center;
@@ -154,7 +93,7 @@
     height: 50px;
   }
   
-  .main-page {
+  .main {
     display: flex;
     align-items: end;
     margin-top: 80px;
@@ -162,20 +101,32 @@
     justify-content: space-between;
   }
   
-  .right-section {
+  .main__content {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
   
-  .search-section {
+  .main__search {
     display: flex;
     flex-direction: column;
-    margin-bottom: 100px;
-    margin-left: 400px;
+    margin-left: 350px;
   }
   
-  .search-section input {
+  .main__input-stub {
+    display: flex;
+    align-items: center;
+    width: 900px;
+  }
+
+  .glass {
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+
+  .main__search .main__input {
     font-family: 'Montserrat', sans-serif;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-weight: 900;
@@ -190,7 +141,7 @@
     width: 660px;
   }
   
-  .search-section h1 {
+  .main__search .main__title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -199,7 +150,7 @@
     padding-left: 48px;
   }
   
-  .search-section .search-section-span {
+  .main__search .main__search-description {
     font-size: 20px;
     width: 560px;
     color: #9C8E76;
@@ -209,189 +160,171 @@
     line-height: 145%;
   }
   
-  .search-section .res-p {
-    font-family: 'Roboto', sans-serif;
+  .main__search .main__search-title {
+    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 20px;
     width: 500px;
     color: #9C8E76;
-    margin-bottom: 212px;
+    margin-bottom: 64px;
     padding-left: 48px;
   }
   
-  .input-section {
+  .cards {
     display: flex;
-    align-items: center;
-    width: 900px;
+    width: 100%;
+    position: relative;
+    align-items: end;
+    justify-content: space-between;
+    user-select: none;
   }
   
-  .glass {
-    justify-content: center;
-    align-items: center;
-    margin-right: 12px;
-    margin-left: 12px;
+  .cards__button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px 1px rgba(45, 65, 102, 0.4);
+    background-color: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
   }
-  
-  .all-bottles-section {
+
+  .cards__button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .cards__button ::ng-deep svg {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 3px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .cards__button_prev {
+    left: -100px;
+    bottom: 132px;
+    transform: translateY(50%);
+  }
+
+  .cards__button_next {
+    right: -100px;
+    bottom: 132px;
+    transform: translateY(50%) rotate(180deg);
+  }
+
+  .cards__list {
     display: flex;
+    width: 100%;
     align-items: end;
     justify-content: space-between;
   }
-  
-  
-  .all-bottles-section .bottle-img {
+
+  .cards .bottle-img {
     max-width: 200px;
     max-height:250px;
     width: auto;
     height: auto;
   }
   
-  .bottle-card {
+  .card {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     justify-content: start;
     align-items: center;
     border-radius: 10px;
     background-color: #FFFFFF;
     box-shadow: 2px 10px 40px rgba(45, 65, 102, 0.1);
     width: 200px;
-    margin-right: 25px;
-    margin-left: 25px;
+    padding: 30px 12px;
   }
 
-  .bottle-card .bottle-p {
-    color: #3F3631;
-    font-size: 18px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-  }
-  
-  .bottle-info .bottle-span {
-    font-size: 12px;
-    text-align: center;
-    color: #9C8E76;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 30px;
-    line-height: 145%;
-  }
-  
-  .bottle-picture {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    border-radius: 10px;
-    width: 200px;
-    height: 110px;
-  }
-  
-  .bottle-info {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 200px;
-    border-radius: 10px;
+  .card:last-child {
+    border-radius: 10px 0px 0px 10px;
   }
 
-  .bottle-info_active .bottle-span {
-    font-size: 16px;
-    text-align: center;
-    color: #9C8E76;
-    padding-left: 34px;
-    padding-right: 34px;
-    line-height: 145%;
-  }
-  
-  .bottle-id-price .id-price-p {
-    color: #3F3631;
-    font-size: 0px;
-  }
-
-
-
-
-
-
-
-
-  
-  .bottles-section_active .bottle-img {
-    max-height: 500px;
-    max-width: 250px;
-    height: 500px;
-    transition: 1s;
-  }
-  
-  .bottle-card_active {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 2px 10px 40px rgba(45, 65, 102, 0.1);
-    height: 376px;
-    width: 304px;
-    margin-left: 25px;
-    margin-right: 25px;
-
-  }
-  
-  .bottle-card_active .bottle-p {
-    color: #3F3631;
-    font-size: 24px;
-    padding-top: 20px;
-    padding-bottom: 13px;
-    transition: 1s;
-  }
-  
-  .bottle-picture_active {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    border-radius: 10px;
-    width: 200px;
-    height: 110px;
-    transition: 1s;
-  }
-  
-  .bottle-info_active {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 304px;
-    border-radius: 10px;
-    transition: 1s;
-  }
-  
-  .bottle-info_active .bottle-span {
-    font-size: 16px;
-    text-align: center;
-    color: #9C8E76;
-    padding-left: 34px;
-    padding-right: 34px;
-    line-height: 145%;
-    padding-bottom: 25px;
-    transition: 1s;
-  }
-  
-  .bottle-id-price_active {
-    display: flex;
-    color: #3F3631;
-    justify-content: space-between;
-    border-radius: 10px;
+  .card__stub {
+    position: relative;
     width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-    transition: 1s;
+    height: 85px;
   }
-  
-  .bottle-id-price_active .id-price-p {
+
+  .card__img {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    bottom: 0px;
+    height: 250px;
+  }
+
+  .card__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
     color: #3F3631;
+    display: inline-block; 
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .card__description {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #9C8E76;
+    display: inline-block; 
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    height: 72px;
+    overflow: hidden;
+  }
+
+  .card__footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+  }
+
+  .card__id, 
+  .card__price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     font-size: 24px;
-    margin-bottom: 25px;
-    opacity: 1;
-    transition: 1s;
+    line-height: 30px;
+    color: #3F3631;
+    display: inline-block; 
+  }
+
+  .card_active.card { 
+    width: 300px;
+    padding: 30px 24px;
+  }
+
+  .card_active .card__stub {
+    height: 155px;
+  }
+
+  .card_active .card__img {
+    height: 500px;
+  }
+
+  .card_active .card__title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-top: 20px;
+  }
+
+  .card_active .card__description {
+    font-size: 16px;
+    line-height: 23px;
+    margin-top: 12px;
+    height: 69px;
   }

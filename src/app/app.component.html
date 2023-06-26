@@ -3,7 +3,7 @@
     <div class="top-navbar-section">
       <div class="top-navbar-left-section">
         <div class="logo-icon">
-          <img src="/assets/pics/logo.png" alt="LOGO">
+          <img src="/assets/pics/logo.png" alt="">
         </div>
       </div>
     </div>
@@ -33,123 +33,47 @@
     </div>
   </div>
 
-  <div class="main-section">
-    <div class="switch-button-left">
-      <a class="prev" #prev (click)="onPrev()">
-        <ul class="nav-ul" id="bottleToLeft">
-          <li>
-              <img class="left-arrow" src="/assets/pics/arrow.svg" alt="LEFT">
-          </li>
-        </ul>
-      </a>
-    </div>
-    <div class="main-page">
-      <div class="right-section">
-        <div class="search-section">
-          <h1>Search for something</h1>
-          <div class="input-section">
-            <div class="glass">   
-              <img src="/assets/pics/glass.svg" alt="glass">
-            </div>
-              <input type="text" value="Barnsley Brew Coffee"> 
+  <div class="main">
+    <div class="main__content">
+      <div class="main__search">
+        <h1 class="main__title">Search for something</h1>
+        <div class="main__input-stub">
+          <div class="glass">   
+            <img src="/assets/pics/glass.svg" alt="glass">
           </div>
-          <span class="search-section-span">Just type something in input above to start searching. Search presented by public API, and all content are fake (or maybe not)</span>
-          <div class="description">
-            <p class="res-p">Results:</p>
+            <input class="main__input" type="text" value="Barnsley Brew Coffee"> 
+        </div>
+        <span class="main__search-description">Just type something in input above to start searching. Search presented by public API, and all content are fake (or maybe not)</span>
+        <p class="main__search-title">Results:</p>
+      </div>
+
+      <div class="cards">
+        <div class="cards__button cards__button_prev" (click)="onPrev()">
+            <ng-container *ngTemplateOutlet="arrowIcon"></ng-container>
+        </div>
+        <div class="cards__list">
+          <div class="card" *ngFor = "let card of filteredCards; let i = index" [class.card_active]="i === 0">
+            <div class="card__stub">
+              <img class="card__img" [src]="card.image">
+            </div>
+            <span class="card__title">{{card.title}}</span>
+            <p class="card__description">{{card.description}}</p>
+            <div class="card__footer" *ngIf="i === 0">
+              <span class="card__id" *ngIf="card.id">{{card.id}}</span>
+              <span class="card__price">{{card.price}}</span>
+            </div>
           </div>
         </div>
-
-        <div class="all-bottles-section">
-          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 0">
-            <div class="bottle-card" [class.bottle-card_active] = "counter === 0">
-              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 0">
-                <img class="bottle-img" src="/assets/pics/bottle5.png" alt="AB:05" [class.bottle-img_active] = "counter === 0">
-              </div>
-              <div class="bottle-info" [class.bottle-info_active] = "counter === 0">
-                <p class="bottle-p" [class.bottle-p_active] = "counter === 0">AB:05</p>
-                <span class="bottle-span" [class.bottle-span_active] = "counter === 0">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces</span>
-              </div>
-              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 0">
-                <p class="id-price-p">abv: 12.5</p>
-                <p class="id-price-p">$69.99</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 1">
-            <div class="bottle-card" [class.bottle-card_active] = "counter === 1">
-              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 1">
-                <img class="bottle-img" src="/assets/pics/bottle1.png" alt="AB:05" [class.bottle-img_active] = "counter === 1">
-              </div>
-              <div class="bottle-info" [class.bottle-info_active] = "counter === 1">
-                <p class="bottle-p" [class.bottle-p_active] = "counter === 1">AB:05</p>
-                <span class="bottle-span" [class.bottle-span_active] = "counter === 1">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
-              </div>
-              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 1">
-                <p class="id-price-p">abv: 12.5</p>
-                <p class="id-price-p">$69.99</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 2">
-            <div class="bottle-card" [class.bottle-card_active] = "counter === 2">
-              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 2">
-                <img class="bottle-img" src="/assets/pics/bottle2.png" alt="AB:05" [class.bottle-img_active] = "counter === 2">
-              </div>
-              <div class="bottle-info" [class.bottle-info_active] = "counter === 2">
-                <p class="bottle-p" [class.bottle-p_active] = "counter === 2">AB:05</p>
-                <span class="bottle-span" [class.bottle-span_active] = "counter === 2">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
-              </div>
-              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 2">
-                <p class="id-price-p">abv: 12.5</p>
-                <p class="id-price-p">$69.99</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 3">
-            <div class="bottle-card" [class.bottle-card_active] = "counter === 3">
-              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 3">
-                <img class="bottle-img" src="/assets/pics/bottle3.png" alt="AB:05" [class.bottle-img_active] = "counter === 3">
-              </div>
-              <div class="bottle-info" [class.bottle-info_active] = "counter === 3">
-                <p class="bottle-p" [class.bottle-p_active] = "counter === 3">AB:05</p>
-                <span class="bottle-span" [class.bottle-span_active] = "counter === 3">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
-              </div>
-              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 3">
-                <p class="id-price-p">abv: 12.5</p>
-                <p class="id-price-p">$69.99</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="once-bottles-section" [class.bottles-section_active] = "counter === 4">
-            <div class="bottle-card" [class.bottle-card_active] = "counter === 4">
-              <div class="bottle-picture" [class.bottle-picture_active] = "counter === 4">
-                <img class="bottle-img" src="/assets/pics/bottle4.png" alt="AB:05" [class.bottle-img_active] = "counter === 4">
-              </div>
-              <div class="bottle-info" [class.bottle-info_active] = "counter === 4">
-                <p class="bottle-p" [class.bottle-p_active] = "counter === 4">AB:05</p>
-                <span class="bottle-span" [class.bottle-span_active] = "counter === 4">Belgian Imperial Stout aged on toasted coconut and cacao. The Belgian yeast strain introduces a whole new dimension to the</span>
-              </div>
-              <div class="bottle-id-price" [class.bottle-id-price_active] = "counter === 4">
-                <p class="id-price-p">abv: 12.5</p>
-                <p class="id-price-p">$69.99</p>
-              </div>
-            </div>
-          </div>
-
+        <div class="cards__button cards__button_next" (click)="onNext()">
+          <ng-container *ngTemplateOutlet="arrowIcon"></ng-container>
         </div>
-      </div>   
-    </div>
-    <div class="switch-button-right">
-      <a class="next" #next (click)="onNext()">
-        <ul class="nav-ul" id="bottleToRight">
-          <li>
-              <img class="right-arrow" src="/assets/pics/arrow.svg" alt="RIGHT">
-          </li>
-        </ul>
-      </a>
+      </div>
+    </div>   
   </div>
 </div>
+
+<ng-template #arrowIcon>
+  <svg fill="#000000" width="25px" height="25px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23.505 0c0.271 0 0.549 0.107 0.757 0.316 0.417 0.417 0.417 1.098 0 1.515l-14.258 14.264 14.050 14.050c0.417 0.417 0.417 1.098 0 1.515s-1.098 0.417-1.515 0l-14.807-14.807c-0.417-0.417-0.417-1.098 0-1.515l15.015-15.022c0.208-0.208 0.486-0.316 0.757-0.316z"></path>
+  </svg>
+</ng-template>
