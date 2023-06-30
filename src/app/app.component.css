@@ -1,3 +1,5 @@
+/* //////////////// MINIMAL RESET \\\\\\\\\\\\\\\\ */
+
   .wrapper {
     display: flex;
     min-height: 100%;
@@ -121,10 +123,16 @@
 
   .glass {
     justify-content: center;
+    border-radius: 100%;
     align-items: center;
     margin-right: 12px;
     margin-left: 12px;
   }
+
+  .glass:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
 
   .main__search .main__input {
     font-family: 'Montserrat', sans-serif;
@@ -148,6 +156,7 @@
     padding: 10px 0px 10px 3px;
     color: #EB5757;
     padding-left: 48px;
+    user-select: none;
   }
   
   .main__search .main__search-description {
@@ -158,6 +167,7 @@
     margin-bottom: 50px;
     padding-left: 48px;
     line-height: 145%;
+    user-select: none;
   }
   
   .main__search .main__search-title {
@@ -168,6 +178,7 @@
     color: #9C8E76;
     margin-bottom: 64px;
     padding-left: 48px;
+    user-select: none;
   }
   
   .cards {
@@ -253,10 +264,11 @@
 
   .card__img {
     position: absolute;
-    left: 50%; 
-    transform: translateX(-50%); 
+    left: 50%; /* !!!!!!! */
+    transform: translateX(-50%); /* !!!!!!! */
     bottom: 0px;
     height: 250px;
+    transition: ease-in-out 500ms;
   }
 
   .card__title {
@@ -265,7 +277,7 @@
     font-size: 18px;
     line-height: 22px;
     color: #3F3631;
-    display: inline-block; 
+    display: inline-block; /* !!!!!!! */
     width: 100%;
     text-align: center;
     margin-top: 15px;
@@ -277,12 +289,14 @@
     font-size: 12px;
     line-height: 18px;
     color: #9C8E76;
-    display: inline-block; 
+    display: inline-block; /* !!!!!!! */
     width: 100%;
     text-align: center;
     margin-top: 10px;
     height: 72px;
     overflow: hidden;
+
+    transition: ease-in-out 1ms;
   }
 
   .card__footer {
@@ -293,17 +307,17 @@
     margin-top: 25px;
   }
 
-  .card__id, 
+  .card__abv, 
   .card__price {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
     color: #3F3631;
-    display: inline-block; 
+    display: inline-block; /* !!!!!!! */
   }
 
-  .card_active.card { 
+  .card_active.card{ /* !!!!!!!! */
     width: 300px;
     padding: 30px 24px;
   }

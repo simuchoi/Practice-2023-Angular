@@ -38,10 +38,11 @@
       <div class="main__search">
         <h1 class="main__title">Search for something</h1>
         <div class="main__input-stub">
-          <div class="glass">   
-            <img src="/assets/pics/glass.svg" alt="glass">
+          
+          <div class="glass" (click)="onSearch(myInput.value)">   
+            <ng-container *ngTemplateOutlet="glassIcon"></ng-container>
           </div>
-            <input class="main__input" type="text" value="Barnsley Brew Coffee"> 
+            <input class="main__input" type="text" value="Barnsley Brew Coffee" #myInput> 
         </div>
         <span class="main__search-description">Just type something in input above to start searching. Search presented by public API, and all content are fake (or maybe not)</span>
         <p class="main__search-title">Results:</p>
@@ -59,7 +60,7 @@
             <span class="card__title">{{card.title}}</span>
             <p class="card__description">{{card.description}}</p>
             <div class="card__footer" *ngIf="i === 0">
-              <span class="card__id" *ngIf="card.id">{{card.id}}</span>
+              <span class="card__abv" *ngIf="card.abv">{{card.abv}}</span>
               <span class="card__price">{{card.price}}</span>
             </div>
           </div>
@@ -75,5 +76,11 @@
 <ng-template #arrowIcon>
   <svg fill="#000000" width="25px" height="25px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.505 0c0.271 0 0.549 0.107 0.757 0.316 0.417 0.417 0.417 1.098 0 1.515l-14.258 14.264 14.050 14.050c0.417 0.417 0.417 1.098 0 1.515s-1.098 0.417-1.515 0l-14.807-14.807c-0.417-0.417-0.417-1.098 0-1.515l15.015-15.022c0.208-0.208 0.486-0.316 0.757-0.316z"></path>
+  </svg>
+</ng-template>
+
+<ng-template #glassIcon>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><g clip-path="url(#a)">
+    <path fill="#000" d="m23.707 22.294-6.825-6.825A9.454 9.454 0 0 0 19 9.5C19 4.263 14.738 0 9.5 0S0 4.263 0 9.5 4.262 19 9.5 19c2.26 0 4.335-.796 5.968-2.118l6.825 6.825a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414ZM9.5 17C5.364 17 2 13.637 2 9.5S5.364 2 9.5 2 17 5.365 17 9.5 13.636 17 9.5 17Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs>
   </svg>
 </ng-template>
